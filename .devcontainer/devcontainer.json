@@ -1,0 +1,59 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/typescript-node
+{
+    "name": "ZDX Node.js & TypeScript",
+    // Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
+    "image": "mcr.microsoft.com/devcontainers/typescript-node:1-20-bullseye",
+
+    "remoteUser": "node",
+  // This syncs the container user's ID with your local user's ID to fix permission issues
+  "updateRemoteUserUID": true,
+
+    // The "features" block tells the container builder to install
+    // additional tools. We already have Python here.
+    "features": {
+        "ghcr.io/devcontainers/features/github-cli:1": {
+        "version": "latest"
+        },
+        "ghcr.io/devcontainers-extra/features/expo-cli:1": {
+			"version": "latest"
+		},
+        "ghcr.io/devcontainers/features/docker-from-docker:1": {
+        "version": "latest",
+        "enableNonRootDocker": "true"
+        }
+    },
+
+    // Use 'forwardPorts' to make a list of ports inside the container available locally.
+    "forwardPorts": [5000, 8081],
+    
+    "initializeCommand": "bash .devcontainer/initializeCommand.sh",
+    // Use 'postCreateCommand' to run commands after the container is created.
+    "postCreateCommand": "bash .devcontainer/postCreateCommand.sh",
+
+    // This tells VS Code/Cursor which extensions to automatically
+    // install inside the container for a better experience.
+    "customizations": {
+    	"vscode": {
+      	"extensions": [
+			"ms-vscode.live-server",
+			"streetsidesoftware.code-spell-checker",
+			"Anthropic.claude-code",
+			"openai.chatgpt",
+			"bierner.markdown-mermaid",
+			"bierner.markdown-yaml-preamble",
+			"RooVeterinaryInc.roo-cline",
+			"dbaeumer.vscode-eslint",
+			"ms-azuretools.vscode-docker",
+			"ms-azuretools.vscode-containers",
+			"github.vscode-github-actions"
+      		]
+    	}
+  	},
+
+    // Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
+    // "remoteUser": "root",
+
+    "runArgs": ["-p=8081:8081", "--env-file", ".devcontainer/.env"]
+
+}

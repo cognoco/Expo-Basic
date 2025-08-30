@@ -1,0 +1,64 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/typescript-node
+{
+	"name": "Node.js & TypeScript",
+	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
+	"image": "mcr.microsoft.com/devcontainers/typescript-node:1-22-bookworm",
+	"features": {
+		"ghcr.io/devcontainers/features/git:1": {
+			"ppa": true,
+			"version": "os-provided"
+		},
+		"ghcr.io/devcontainers-extra/features/expo-cli:1": {
+			"version": "latest"
+		}
+	},
+	// This syncs the container user's ID with your local user's ID to fix permission issues
+  	"updateRemoteUserUID": true,
+  	"remoteUser": "node",
+	  
+	// This tells VS Code/Cursor which extensions to automatically
+  	// install inside the container for a better experience.
+  	"customizations": {
+    	"vscode": {
+      	"extensions": [
+			"ms-vscode.live-server",
+			"streetsidesoftware.code-spell-checker",
+			"Anthropic.claude-code",
+			"openai.chatgpt",
+			"bierner.markdown-mermaid",
+			"bierner.markdown-yaml-preamble",
+			"RooVeterinaryInc.roo-cline",
+			"dbaeumer.vscode-eslint",
+			"ms-azuretools.vscode-docker",
+			"ms-azuretools.vscode-containers",
+			"github.vscode-github-actions"
+      		]
+    	}
+  	},
+
+		// Use 'forwardPorts' to make a list of ports inside the container available locally.
+	"forwardPorts": [5500, 8081],
+
+	"initializeCommand": "bash .devcontainer/initializeCommand.sh",
+
+	// Use 'postCreateCommand' to run commands after the container is created.
+	"postCreateCommand": "bash .devcontainer/postCreateCommand.sh",
+	
+	// Explicitly set the workspace folder to avoid issues with spaces in folder name
+	// "workspaceFolder": "/workspaces/expo-basic",
+	// "workspaceMount": "source=${localWorkspaceFolder},target=/workspaces/expo-basic,type=bind",
+
+	"runArgs": ["-p=8081:8081", "--env-file", ".devcontainer/.env"],
+	
+	// Claude Code below here
+	"mounts": [
+		"source=claude-code-bashhistory-${devcontainerId},target=/commandhistory,type=volume",
+		"source=claude-code-config-${devcontainerId},target=/home/node/.claude,type=volume"
+	],
+	"containerEnv": {
+		"NODE_OPTIONS": "--max-old-space-size=4096",
+		"CLAUDE_CONFIG_DIR": "/home/node/.claude",
+		"POWERLEVEL9K_DISABLE_GITSTATUS": "true"
+	}
+}
