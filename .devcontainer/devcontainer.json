@@ -27,6 +27,10 @@
     // Use 'forwardPorts' to make a list of ports inside the container available locally.
     "forwardPorts": [5000, 8081],
     
+    "mounts": ["source=${localEnv:HOME}/.zdx-claude,target=/claude,type=bind"],
+    "remoteEnv": {"CLAUDE_CONFIG_DIR": "/claude"},
+    "postStartCommand": "sudo chown -R node:node /claude",
+
     "initializeCommand": "bash .devcontainer/initializeCommand.sh",
     // Use 'postCreateCommand' to run commands after the container is created.
     "postCreateCommand": "bash .devcontainer/postCreateCommand.sh",
