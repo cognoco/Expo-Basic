@@ -29,8 +29,15 @@
     
     // Tells Claude to use /claude for storing config and also bypasses double
     // security to allow persistence of credentials. Mounts /claude to folder in WSL host.
-    "remoteEnv": {"CLAUDE_CONFIG_DIR": "/claude"},
-    "mounts": ["source=${localEnv:HOME}/.zdx-claude,target=/claude,type=bind"],
+    // Also sets up PulseAudio for sound support
+    "remoteEnv": {
+        "CLAUDE_CONFIG_DIR": "/claude",
+        "PULSE_SERVER": "/mnt/wslg/runtime-dir/pulse/native"
+    },
+    "mounts": [
+        "source=${localEnv:HOME}/.zdx-claude,target=/claude,type=bind",
+        "source=/mnt/wslg/runtime-dir/pulse,target=/mnt/wslg/runtime-dir/pulse,type=bind"
+    ],
     "postStartCommand": "sudo chown -R node:node /claude",
 
     "initializeCommand": "bash .devcontainer/initializeCommand.sh",

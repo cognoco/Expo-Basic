@@ -12,11 +12,12 @@ echo "Installing Claude CLI..."
 # Use sudo for global npm installations
 npm install -g @anthropic-ai/claude-code
 
-sudo chown -R node:node /home/node/.claude
-
 echo "Installing Markdown tree parser..."
 # Use sudo for global npm installations
 sudo npm install -g @kayvan/markdown-tree-parser
+
+echo "Installing Pulse Audio utils..."
+sudo apt-get update && sudo apt-get install -y pulseaudio-utils alsa-utils
 
 echo "Installing uv (Python package manager)..."
 # Install uv system-wide using official installer
