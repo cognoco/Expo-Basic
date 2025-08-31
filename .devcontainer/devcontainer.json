@@ -53,6 +53,7 @@
           "streetsidesoftware.code-spell-checker",
           "Anthropic.claude-code",
           "openai.chatgpt",
+          "Google.gemini-cli-vscode-ide-companion",
           "bierner.markdown-mermaid",
           "bierner.markdown-yaml-preamble",
           "RooVeterinaryInc.roo-cline",

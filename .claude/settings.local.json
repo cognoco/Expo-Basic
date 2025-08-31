@@ -1,0 +1,15 @@
+{
+  "hooks": {
+    "Notification": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "paplay '/workspaces/Expo Basic/.devcontainer/notification.wav'"
+          }
+        ]
+      }
+    ]
+  }
+}

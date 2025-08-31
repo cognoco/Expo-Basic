@@ -8,12 +8,22 @@ sudo apt update
 sudo apt install watchman
 watchman version
 
-echo "Installing Claude CLI..."
+# Install dos2unix (tool to fix Windows/Linux file ending incompatibilities)
+echo "Installing dos2unix..."
+sudo apt update
+sudo apt install -y dos2unix
+
 # Use sudo for global npm installations
+echo "Installing Claude CLI..."
 npm install -g @anthropic-ai/claude-code
 
+echo "Installing Gemini CLI..."
+npm install -g @google/gemini-cli
+
+echo "Installing Codex CLI..."
+npm install -g @openai/codex
+
 echo "Installing Markdown tree parser..."
-# Use sudo for global npm installations
 sudo npm install -g @kayvan/markdown-tree-parser
 
 echo "Installing Pulse Audio utils..."
