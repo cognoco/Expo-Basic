@@ -1,0 +1,131 @@
+# Git Ignore File
+# Excludes files and directories from Git version control
+
+# Work in progress and temporary directories
+_WIP/
+
+# Agent config (uncomment as desired based on workflow)
+# .claude/settings.local.json
+# ".mcp.json
+
+# BMAD system directories (consider if these should be tracked)
+# .bmad-core/
+# .claude/
+# .cursor/
+# .gemini/
+# .windsurf/
+# web-bundles/
+.claude/settings.local.json
+
+# Development container (usually tracked, but ignore if environment-specific)
+#.devcontainer/
+
+
+# Configuration directories
+#.roommodes/
+
+# Build and dependency directories
+node_modules/
+.pnpm-store/
+.next/
+.supabase/
+
+# Environment and configuration files
+.env
+.env.local
+.devcontainer/devcontainer.env
+.mcp.json
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# ...but DO commit the shared project settings within it.
+!/.vscode/settings.json
+!/.vscode/extensions.json
+!/.vscode/launch.json
+!/.vscode/tasks.json
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Log files
+*.log
+logs/
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+*.temp
+
+# Auto-generated cache files
+.eslintcache
+.prettiercache
+
+# Package manager files
+package-lock.json
+yarn.lock
+# pnpm-lock.yaml - Commented out to allow lock file tracking for reproducible builds
+
+# TypeScript build cache
+*.tsbuildinfo
+
+# Test coverage
+coverage/
+**/coverage/
+
+# TypeScript compilation artifacts in source directories
+apps/backend/src/**/*.js
+apps/backend/src/**/*.d.ts
+apps/backend/src/**/*.js.map
+apps/backend/src/**/*.d.ts.map
+
+# Claude Flow generated files
+claude-flow.config.json
+.swarm/
+.hive-mind/
+memory/claude-flow-data.json
+memory/sessions/*
+!memory/sessions/README.md
+memory/agents/*
+!memory/agents/README.md
+coordination/memory_bank/*
+coordination/subtasks/*
+coordination/orchestration/*
+*.db
+*.db-journal
+*.db-wal
+*.sqlite
+*.sqlite-journal
+*.sqlite-wal
+claude-flow
+claude-flow.bat
+claude-flow.ps1
+hive-mind-prompt-*.txt
+
+# Claude Flow (AI coordination tool - local artifacts)
+.claude-flow/
+**/.claude-flow/
+
+# Temporary upgrade logs
+.upgrade-logs/
+
+# Accidental directory creation
+--version/
+
+# Serena MCP Server - Keep memories, ignore cache and temporary files
+.serena/cache/
+.serena/*.log
+.serena/dashboard/
+# Note: .serena/memories/ and .serena/project.yml are intentionally NOT ignored
+# These contain valuable project knowledge that should be preserved
