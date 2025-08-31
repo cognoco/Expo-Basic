@@ -1,8 +1,13 @@
+#!/usr/bin/env bash
+sed -i 's/\r$//' "$0"
+
+# Above lines enforce correct handling of LF/CRLF
+
 echo -e "\nStarting post create command script..."
 echo "Dev machine:"
 uname -a
 echo -e "\nInstalling expo boiler plate..."
-npm install --save-dev -y create-expo-app@2.1.1
+npm install --save-dev create-expo-app@latest
 echo -e "\nInstalling watchman...\n"
 sudo apt update
 sudo apt install watchman
