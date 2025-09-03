@@ -6,15 +6,15 @@ module.exports = function(api) {
       ['module-resolver', {
         root: ['./'],
         alias: {
-          '@screens': './study-buddy/src/screens',
-          '@components': './study-buddy/src/components',
-          '@utils': './study-buddy/src/utils',
-          '@assets': './study-buddy/src/assets',
-          '@config': './study-buddy/src/utils/config',
-          '@content': './study-buddy/src/utils/content',
-          '@types': './study-buddy/src/types',
-          '@ui': './study-buddy/src/ui',
-          '@context': './study-buddy/src/context'
+          '@screens': './src/screens',
+          '@components': './src/components',
+          '@utils': './src/utils',
+          '@assets': './src/assets',
+          '@config': './src/utils/config',
+          '@content': './src/utils/content',
+          '@types': './src/types',
+          '@ui': './src/ui',
+          '@context': './src/context'
         },
         extensions: ['.ts', '.tsx', '.js', '.json']
       }],
