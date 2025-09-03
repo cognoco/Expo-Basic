@@ -4,7 +4,7 @@ import { smartSpeak } from './speech';
 describe('smartSpeak', () => {
   it('rate-limits rapid calls when not forced', async () => {
     const stopSpy = jest.spyOn(Speech, 'stop' as any).mockResolvedValue(undefined as any);
-    const speakSpy = jest.spyOn(Speech, 'speak' as any).mockImplementation(() => undefined as any);
+    const speakSpy = jest.spyOn(Speech, 'speak' as any).mockImplementation(() => {} as any);
     const isSpeakingSpy = jest.spyOn(Speech, 'isSpeakingAsync' as any).mockResolvedValue(false as any);
 
     await smartSpeak('one');
@@ -19,7 +19,7 @@ describe('smartSpeak', () => {
 
   it('forceSpeak bypasses rate limiting', async () => {
     const stopSpy = jest.spyOn(Speech, 'stop' as any).mockResolvedValue(undefined as any);
-    const speakSpy = jest.spyOn(Speech, 'speak' as any).mockImplementation(() => undefined as any);
+    const speakSpy = jest.spyOn(Speech, 'speak' as any).mockImplementation(() => {} as any);
     const isSpeakingSpy = jest.spyOn(Speech, 'isSpeakingAsync' as any).mockResolvedValue(false as any);
 
     await smartSpeak('one');
