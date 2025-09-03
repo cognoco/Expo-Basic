@@ -1,7 +1,7 @@
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the
 // README at: https://github.com/devcontainers/templates/tree/main/src/typescript-node
 {
-    "name": "ZDX Node.js & TypeScript",
+    "name": "ZDX Expo",
     // Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
     "image": "mcr.microsoft.com/devcontainers/typescript-node:20-bookworm",
 
@@ -31,8 +31,7 @@
     // Also sets up PulseAudio for sound support
     "remoteEnv": {
         "CLAUDE_CONFIG_DIR": "/claude",
-        "PULSE_SERVER": "/mnt/wslg/runtime-dir/pulse/native",
-        "REACT_NATIVE_PACKAGER_HOSTNAME": "host.docker.internal"
+        "PULSE_SERVER": "/mnt/wslg/runtime-dir/pulse/native"
     },
     "mounts": [
         "source=${localEnv:HOME}/.zdx-claude,target=/claude,type=bind",
@@ -40,7 +39,7 @@
     ],
     "postStartCommand": "sudo chown -R node:node /claude",
 
-    //"initializeCommand": "bash .devcontainer/initializeCommand.sh",
+    "initializeCommand": "bash .devcontainer/initializeCommand.sh",
     // Use 'postCreateCommand' to run commands after the container is created.
     "postCreateCommand": "bash .devcontainer/postCreateCommand.sh",
 
@@ -68,7 +67,6 @@
     // Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
     // "remoteUser": "root",
 
-    //"runArgs": ["-p=8081:8081", "--env-file", ".devcontainer/.env"]
-    "runArgs": ["-p=8081:8081"]
+    "runArgs": ["-p=8081:8081", "--env-file", ".devcontainer/.env"]
 
 }
