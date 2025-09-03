@@ -18,5 +18,10 @@
         "titleBar.activeForeground": "#e7e7e7",
         "titleBar.inactiveBackground": "#dd053199",
         "titleBar.inactiveForeground": "#e7e7e799"
+    },
+    "editor.codeActionsOnSave": {
+        "source.fixAll": "explicit",
+        "source.organizeImports": "explicit",
+        "source.sortMembers": "explicit"
     }
 }
