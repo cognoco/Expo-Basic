@@ -24,7 +24,7 @@
     },
 
     // Use 'forwardPorts' to make a list of ports inside the container available locally.
-    "forwardPorts": [5000, 8081, 19006],
+    "forwardPorts": [5000, 8081, 8082, 8083, 8084, 19006],
     
     // Tells Claude to use /claude for storing config and also bypasses double
     // security to allow persistence of credentials. Mounts /claude to folder in WSL host.
@@ -67,6 +67,9 @@
     // Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
     // "remoteUser": "root",
 
-    "runArgs": ["-p=8081:8081", "--env-file", ".devcontainer/.env"]
+    // The "runArgs" property specifies additional arguments to pass to the Docker container when it is started.
+    // Here, "-p=8081:8084" maps ports 8081 through 8084 from the container to the host, making these ports accessible locally.
+    // The "--env-file" option loads environment variables from the specified file (".devcontainer/.env") into the container.
+    "runArgs": ["--env-file", ".devcontainer/.env"]
 
 }

@@ -1,8 +1,8 @@
-import Constants from 'expo-constants';
 import { Platform } from 'react-native';
 import { getAppConfig } from '@config/appConfig';
+import { PostHog } from 'posthog-react-native';
 
-let posthog = null;
+let posthog: any = null;
 
 export const initAnalytics = async (): Promise<void> => {
   try {
@@ -10,8 +10,6 @@ export const initAnalytics = async (): Promise<void> => {
     const key = ph.apiKey;
     const host = ph.host;
     if (!key || !host) return;
-    // Lazy import to avoid bundling if not set
-    const { PostHog } = await import('posthog-react-native');
     posthog = new PostHog(key, { host, flushAt: 1 });
     await posthog.setup();
     posthog?.identify?.(undefined, { platform: Platform.OS });

@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { View, Text, StyleSheet, Animated, StyleProp, ViewStyle } from 'react-native';
-import LottieView from 'lottie-react-native';
+import LottieView from './LottieView';
 import { 
   getAgeConfig, 
   getScaledSize,

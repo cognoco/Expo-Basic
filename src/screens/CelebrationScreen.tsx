@@ -9,7 +9,7 @@ import {
   Share,
   Modal
 } from 'react-native';
-import LottieView from 'lottie-react-native';
+import LottieView from '../components/LottieView';
 import * as Speech from 'expo-speech';
 import * as Haptics from 'expo-haptics';
 import { setStorageItem, getStorageItem } from '@utils/core/storage';
