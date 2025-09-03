@@ -3,7 +3,7 @@
 {
     "name": "ZDX Node.js & TypeScript",
     // Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
-    "image": "mcr.microsoft.com/devcontainers/typescript-node:1-20-bullseye",
+    "image": "mcr.microsoft.com/devcontainers/typescript-node:20-bookworm",
 
     "remoteUser": "node",
   // This syncs the container user's ID with your local user's ID to fix permission issues
@@ -15,24 +15,24 @@
         "ghcr.io/devcontainers/features/github-cli:1": {
         "version": "latest"
         },
-        "ghcr.io/devcontainers-extra/features/expo-cli:1": {
-			"version": "latest"
-		},
-        "ghcr.io/devcontainers/features/docker-from-docker:1": {
-        "version": "latest",
-        "enableNonRootDocker": "true"
-        }
+        "ghcr.io/devcontainers/features/docker-outside-of-docker:1": {
+			"installDockerBuildx": true,
+			"installDockerComposeSwitch": true,
+			"version": "27.0.3",
+			"dockerDashComposeVersion": "v2"
+		}
     },
 
     // Use 'forwardPorts' to make a list of ports inside the container available locally.
-    "forwardPorts": [5000, 8081],
+    "forwardPorts": [5000, 8081, 19006],
     
     // Tells Claude to use /claude for storing config and also bypasses double
     // security to allow persistence of credentials. Mounts /claude to folder in WSL host.
     // Also sets up PulseAudio for sound support
     "remoteEnv": {
         "CLAUDE_CONFIG_DIR": "/claude",
-        "PULSE_SERVER": "/mnt/wslg/runtime-dir/pulse/native"
+        "PULSE_SERVER": "/mnt/wslg/runtime-dir/pulse/native",
+        "REACT_NATIVE_PACKAGER_HOSTNAME": "host.docker.internal"
     },
     "mounts": [
         "source=${localEnv:HOME}/.zdx-claude,target=/claude,type=bind",
@@ -40,7 +40,7 @@
     ],
     "postStartCommand": "sudo chown -R node:node /claude",
 
-    "initializeCommand": "bash .devcontainer/initializeCommand.sh",
+    //"initializeCommand": "bash .devcontainer/initializeCommand.sh",
     // Use 'postCreateCommand' to run commands after the container is created.
     "postCreateCommand": "bash .devcontainer/postCreateCommand.sh",
 
@@ -68,6 +68,7 @@
     // Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
     // "remoteUser": "root",
 
-    "runArgs": ["-p=8081:8081", "--env-file", ".devcontainer/.env"]
+    //"runArgs": ["-p=8081:8081", "--env-file", ".devcontainer/.env"]
+    "runArgs": ["-p=8081:8081"]
 
 }
