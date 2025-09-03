@@ -70,7 +70,7 @@ export interface GeneratePeerLineInput {
 }
 
 // React Navigation augmentation (global)
-import type { RootStackParamList } from '@types/navigation';
+import type { RootStackParamList } from './navigation';
 declare global {
   namespace ReactNavigation {
     interface RootParamList extends RootStackParamList {}
