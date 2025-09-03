@@ -1,0 +1,73 @@
+{
+  "expo": {
+    "name": "Study Buddy",
+    "slug": "study-buddy",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    // "icon": "./src/assets/icons/icon.png",
+    "userInterfaceStyle": "light",
+    "runtimeVersion": { "policy": "sdkVersion" },
+    // "splash": {
+    //   "image": "./src/assets/splash.png",
+    //   "resizeMode": "contain",
+    //   "backgroundColor": "#4A90E2"
+    // },
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.focusflow.studybuddy",
+      "buildNumber": "1",
+      "infoPlist": {
+        "NSMicrophoneUsageDescription": "Study Buddy needs microphone access to record encouraging messages.",
+        "NSCameraUsageDescription": "Study Buddy uses the camera to take an optional photo of completed homework.",
+        "NSPhotoLibraryAddUsageDescription": "Study Buddy saves homework photos to your device only.",
+        "UIFileSharingEnabled": false,
+        "LSSupportsOpeningDocumentsInPlace": false
+      }
+    },
+    "android": {
+      // "adaptiveIcon": {
+      //   "foregroundImage": "./src/assets/icons/adaptive-icon.png",
+      //   "backgroundColor": "#4A90E2"
+      // },
+      "package": "com.focusflow.studybuddy",
+      "versionCode": 1,
+      "permissions": ["RECORD_AUDIO", "VIBRATE", "CAMERA", "POST_NOTIFICATIONS"]
+    },
+    "web": {
+      // "favicon": "./src/assets/favicon.png"
+    },
+    "plugins": [
+      ["sentry-expo"]
+    ],
+    "extra": {
+      // "eas": {
+      //   "projectId": "your-project-id"
+      // },
+      "revenuecat": {
+        "iosApiKey": "REPLACE_WITH_REVENUECAT_IOS_API_KEY",
+        "androidApiKey": "REPLACE_WITH_REVENUECAT_ANDROID_API_KEY",
+        "entitlementId": "premium"
+      },
+      "manageSubscriptions": {
+        "ios": "itms-apps://apps.apple.com/account/subscriptions",
+        "android": "https://play.google.com/store/account/subscriptions?package=com.focusflow.studybuddy"
+      },
+      "sentry": {
+        "dsn": "REPLACE_WITH_SENTRY_DSN"
+      },
+      "posthog": {
+        "apiKey": "REPLACE_WITH_POSTHOG_API_KEY",
+        "host": "https://us.i.posthog.com"
+      },
+      "remote": {
+        "paywall": { "sessionsTillPaywall": 3, "variants": { "A": 0.5, "B": 0.5 } },
+        "surprise": { "frequencyMultiplier": 1.0 }
+      },
+      "urls": {
+        "privacyPolicy": "https://example.com/privacy",
+        "termsOfService": "https://example.com/terms",
+        "support": "https://example.com/support"
+      }
+    }
+  }
+}
