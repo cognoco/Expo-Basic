@@ -1,0 +1,1 @@
+cp /workspaces/StudyBuddy/.devcontainer/config.toml /home/node/.codex/

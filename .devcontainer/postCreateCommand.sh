@@ -35,11 +35,24 @@ npm install -g @google/gemini-cli
 echo "Installing Codex CLI..."
 npm install -g @openai/codex
 
+# Append MCP servers config for Codex CLI
+echo "Appending MCP servers to /home/node/.codex/config.toml ..."
+sudo install -d -o node -g node /home/node/.codex
+sudo -u node bash -lc 'touch /home/node/.codex/config.toml && { echo; cat .devcontainer/codex-mcp.txt; } >> /home/node/.codex/config.toml'
+
 echo "Installing Markdown tree parser..."
 sudo npm install -g @kayvan/markdown-tree-parser
 
 echo "Installing Pulse Audio utils..."
 sudo apt-get update && sudo apt-get install -y pulseaudio-utils alsa-utils
+
+
+# Install uv system-wide using official installer - used for MCP servers even if project doesn't use Python!
+echo "Installing uv (Python package manager)..."
+curl -LsSf https://astral.sh/uv/install.sh | sudo sh
+# Make uv available system-wide by moving from root to /usr/local/bin
+sudo mv /root/.local/bin/uv /usr/local/bin/uv 2>/dev/null || echo "uv already in system path"
+sudo mv /root/.local/bin/uvx /usr/local/bin/uvx 2>/dev/null || echo "uvx already in system path"
 
 # --- Add Shell Alias for Claude ---
 echo "Creating 'cc' alias for 'claude --dangerously-skip-permissions'..."

@@ -1,0 +1,27 @@
+# MCP servers configuration
+[mcp_servers.serena]
+command = "uvx"
+args = [
+  "--from",
+  "git+https://github.com/oraios/serena",
+  "serena",
+  "start-mcp-server",
+  "--context",
+  "ide-assistant",
+]
+env = {}
+
+[mcp_servers.expo-docs]
+command = "npx"
+args = ["expo-docs-mcp", "--user"]
+env = {}
+
+[mcp_servers.context7-mcp]
+command = "npx"
+args = ["-y", "@upstash/context7-mcp@latest"]
+env = {}
+
+[mcp_servers.sequential-thinking-mcp]
+command = "npx"
+args = ["-y", "@modelcontextprotocol/server-sequential-thinking"]
+env = {}
