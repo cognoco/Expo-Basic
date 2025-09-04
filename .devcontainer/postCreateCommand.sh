@@ -7,6 +7,10 @@ echo -e "\nStarting post create command script..."
 # echo "Dev machine:"
 uname -a
 
+# Ensure IDE/CLI config dirs exist and have correct ownership
+mkdir -p ~/.codex ~/.vscode-server ~/.cursor-server \
+  && sudo chown -R $(id -u):$(id -g) ~/.codex ~/.vscode-server ~/.cursor-server
+
 # Installing Expo specific tooling (Expo CLIs and Watchman)
 echo "Installing Expo CLI..."
 npm install -g expo-cli
